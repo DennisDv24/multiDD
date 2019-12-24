@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DDDPlayerController : MonoBehaviour
+public class DDDSystemController : MonoBehaviour
 {
 
 public float speed;
@@ -10,30 +10,24 @@ public float speed;
 float x;
 float y;
 float z;
-float theta=0;
-float fi=Mathf.PI;
-    float r=.5f;
 
 
     void Update()
     {
-            x = r*Mathf.Sin(theta)*Mathf.Cos(fi);
-            y = r*Mathf.Sin(theta)*Mathf.Sin(fi);
-            z = r*Mathf.Cos(theta);
 
-        transform.position = new Vector3(x,y,z);
+        transform.rotation = Quaternion.Euler(x,y,0);
 
             if(Input.GetKey(KeyCode.LeftArrow)){
-                theta += speed;
+                y+= speed;
             }
             if(Input.GetKey(KeyCode.RightArrow)){
-                theta -= speed;
+                y-= speed;
             }
             if(Input.GetKey(KeyCode.UpArrow)){
-                fi += speed;
+                x-= speed;
             }
             if(Input.GetKey(KeyCode.DownArrow)){
-                fi -= speed;
+                x+= speed;
             }
     }
 }
