@@ -10,7 +10,7 @@ public bool yneg;
     int xoperator;
     int yoperator;
 
-    void FixedUpdate()
+    void Awake()
     {
                 xoperator = xneg?-1:1;
                 yoperator = yneg?-1:1;

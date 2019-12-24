@@ -5,39 +5,25 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-float speed = .1f;
-
-float x;
-float y;
-float z;
-float theta=0;
-float fi=Mathf.PI;
-    float r=.5f;
+    Rigidbody rb;
+        Vector3 pos;
 
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-            x = r*Mathf.Sin(theta)*Mathf.Cos(fi);
-            y = r*Mathf.Sin(theta)*Mathf.Sin(fi);
-            z = r*Mathf.Cos(theta);
+        pos = new Vector3(
+            Input.GetAxis("Horizontal"),
+            Input.GetAxis("Vertical"),
+            rb.velocity.z);
+    }
 
-        transform.position = new Vector3(x,y,z);
+    void FixedUpdate() {
+        rb.velocity = pos; 
 
-            if(Input.GetKey(KeyCode.LeftArrow)){
-                theta += speed;
-            }
-            if(Input.GetKey(KeyCode.RightArrow)){
-                theta -= speed;
-            }
-            if(Input.GetKey(KeyCode.UpArrow)){
-                fi += speed;
-            }
-            if(Input.GetKey(KeyCode.DownArrow)){
-                fi -= speed;
-            }
+
     }
 }
