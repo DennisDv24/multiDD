@@ -5,7 +5,7 @@ using UnityEngine;
 public class DDDPlayerController : MonoBehaviour
 {
 
-public float speed;
+float speed = .1f;
 
 float x;
 float y;
@@ -17,23 +17,31 @@ float fi=Mathf.PI;
 
     void Update()
     {
+            theta = (Input.GetKey("d")) ? theta+=speed :
+                    (Input.GetKey("a")) ? theta-=speed : theta;
+            fi = (Input.GetKey("w")) ? fi+=speed :
+                 (Input.GetKey("s")) ? fi-=speed : fi;
+
+
+
             x = r*Mathf.Sin(theta)*Mathf.Cos(fi);
             y = r*Mathf.Sin(theta)*Mathf.Sin(fi);
             z = r*Mathf.Cos(theta);
-
         transform.position = new Vector3(x,y,z);
 
-            if(Input.GetKey(KeyCode.LeftArrow)){
-                theta += speed;
-            }
-            if(Input.GetKey(KeyCode.RightArrow)){
-                theta -= speed;
-            }
-            if(Input.GetKey(KeyCode.UpArrow)){
-                fi += speed;
-            }
-            if(Input.GetKey(KeyCode.DownArrow)){
-                fi -= speed;
-            }
     }
+
+     /* void Update()
+    {
+                theta = (Input.GetKey("d")) ? 1 : 
+                        (Input.GetKey("a")) ? -1 : 0;
+                fi = (Input.GetKey("w")) ? 1 : 
+                     (Input.GetKey("s")) ? -1 : 0;
+
+            xSense = r*Mathf.Sin(theta)*Mathf.Cos(fi);
+            ySense = r*Mathf.Sin(theta)*Mathf.Sin(fi);
+            zSense = r*Mathf.Cos(theta);
+
+        pos = new Vector3(xSense, ySense, zSense);
+    }*/
 }

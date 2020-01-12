@@ -48,7 +48,6 @@
      <Compile Include="Assets\Scripts\DDDPlayerController.cs" />
      <Compile Include="Assets\Scripts\DDDSystemController.cs" />
      <Compile Include="Assets\Scripts\LimitPosition.cs" />
-     <Compile Include="Assets\Scripts\PlaneController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/home/dennis3/programming/unityProjects/multiDD/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
