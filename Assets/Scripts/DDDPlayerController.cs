@@ -22,8 +22,6 @@ float fi=Mathf.PI;
             fi = (Input.GetKey("w")) ? fi+=speed :
                  (Input.GetKey("s")) ? fi-=speed : fi;
 
-
-
             x = r*Mathf.Sin(theta)*Mathf.Cos(fi);
             y = r*Mathf.Sin(theta)*Mathf.Sin(fi);
             z = r*Mathf.Cos(theta);
