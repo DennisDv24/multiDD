@@ -8,29 +8,23 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     
     Vector3 pos;
-        float verticalSense;
-        float horizontalSense;
+        Vector3 verticalSense;
+        Vector3 horizontalSense;
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
+
 
     void Update()
     {
-        horizontalSense = (Input.GetKey("d"))?1:
-                          (Input.GetKey("a"))?-1:0;
-        verticalSense = (Input.GetKey("w"))?1:
-                        (Input.GetKey("s"))?-1:0;
+        horizontalSense = (Input.GetKey("d"))? Vector3.right :
+                          (Input.GetKey("a"))? Vector3.left  : new Vector3(0,0,0) ;
+        verticalSense = (Input.GetKey("w"))? Vector3.up   :
+                        (Input.GetKey("s"))? Vector3.down : new Vector3(0,0,0) ;
     
 
         
-        pos = new Vector3(horizontalSense, verticalSense, rb.velocity.z);
+        pos = horizontalSense+verticalSense;
+        transform.Translate(0.02f*(pos));
     }
 
-    void FixedUpdate() {
-        rb.velocity = pos; 
 
-
-    }
 }
